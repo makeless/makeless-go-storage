@@ -1,7 +1,6 @@
 package basic
 
 import (
-	"bytes"
 	"github.com/spf13/afero"
 	"sync"
 	"testing"
@@ -44,7 +43,7 @@ func TestStorageWriteRead(t *testing.T) {
 			return
 		}
 
-		if bytes.Compare(test.data, data) != 0 {
+		if string(test.data) != string(data) {
 			t.Errorf("%d: error: %s", i, "bytes not equal")
 		}
 	}
